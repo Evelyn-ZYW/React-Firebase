@@ -1,25 +1,40 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./TripList.css";
-export default function TripList() {
-  const [trips, setTrips] = useState([]);
+import useFetch from "../hooks/useFetch";
 
-  useEffect(() => {
-    fetch("http://localhost:3000/trips")
-      .then((res) => res.json())
-      .then((json) => setTrips(json));
-  }, []);
+export default function TripList() {
+  //   const [trips, setTrips] = useState([]);
+  const [url, setUrl] = useState("http://localhost:3000/trips");
+  const { data: trips, isPending } = useFetch(url);
+
+  //   const fetchTrips = useCallback(async () => {
+  //     const res = await fetch(url);
+  //     const json = await res.json();
+  //     setTrips(json);
+  //   }, [url]);
+
+  //   useEffect(() => {
+  //     fetchTrips();
+  //   }, [fetchTrips]);
 
   return (
     <div className="trip-list">
       <h2>Trip List</h2>
+      {isPending && <div>Loading trips...</div>}
       <ul>
-        {trips.map((trip) => (
+        {trips && trips.map((trip) => (
           <li key={trip.id}>
             <h3>{trip.title}</h3>
             <p>{trip.price}</p>
           </li>
         ))}
       </ul>
+      <button onClick={() => setUrl("http://localhost:3000/trips?loc=europe")}>
+        European Trips
+      </button>
+      <button onClick={() => setUrl("http://localhost:3000/trips")}>
+        All Trips
+      </button>
     </div>
   );
 }
