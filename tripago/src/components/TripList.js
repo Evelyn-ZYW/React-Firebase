@@ -5,7 +5,7 @@ import useFetch from "../hooks/useFetch";
 export default function TripList() {
   //   const [trips, setTrips] = useState([]);
   const [url, setUrl] = useState("http://localhost:3000/trips");
-  const { data: trips, isPending, error } = useFetch(url);
+  const { data: trips, isPending, error } = useFetch(url, { type: "GET" });
 
   //   const fetchTrips = useCallback(async () => {
   //     const res = await fetch(url);
@@ -23,12 +23,13 @@ export default function TripList() {
       {isPending && <div>Loading trips...</div>}
       {error && <div>{error}</div>}
       <ul>
-        {trips && trips.map((trip) => (
-          <li key={trip.id}>
-            <h3>{trip.title}</h3>
-            <p>{trip.price}</p>
-          </li>
-        ))}
+        {trips &&
+          trips.map((trip) => (
+            <li key={trip.id}>
+              <h3>{trip.title}</h3>
+              <p>{trip.price}</p>
+            </li>
+          ))}
       </ul>
       <button onClick={() => setUrl("http://localhost:3000/trips?loc=europe")}>
         European Trips
