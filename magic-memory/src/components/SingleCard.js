@@ -1,9 +1,9 @@
 import "./SingleCard.css";
-export default function SingleCard({ key, src }) {
+export default function SingleCard({ card }) {
   return (
-    <div className="card" key={key}>
+    <div className="card">
       <div>
-        <img className="font" src={src} alt="card front" />
+        <img className="font" src={card.src} alt="card front" />
         <img className="back" src="/img/cover.png" alt="cover" />
       </div>
     </div>
