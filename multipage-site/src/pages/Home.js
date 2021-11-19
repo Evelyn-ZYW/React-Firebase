@@ -1,15 +1,26 @@
+import useFetch from "../hooks/useFetch";
+import { Link } from "react-router-dom";
+import "./Home.css";
+
 export default function Home() {
+  const {
+    data: articles,
+    isPending,
+    error,
+  } = useFetch("http://localhost:3000/articles");
   return (
-    <div>
-      <h2>Homepage</h2>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged.
-      </p>
+    <div className="home">
+      <h2>Articles</h2>
+      {isPending && <div>Loading</div>}
+      {error && <div>{error}</div>}
+      {articles &&
+        articles.map((article) => (
+          <div className="card" key={article.id}>
+            <h3>{article.title}</h3>
+            <p>{article.author}</p>
+            <Link to={`/articles/${article.id}`}>Read more...</Link>
+          </div>
+        ))}
     </div>
   );
 }
