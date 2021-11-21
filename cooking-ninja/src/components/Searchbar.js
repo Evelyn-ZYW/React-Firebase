@@ -9,7 +9,7 @@ export default function Searchbar() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    navigate(`/search?query=${term}`);
+    navigate(`/search?q=${term}`);
   };
 
   return (
