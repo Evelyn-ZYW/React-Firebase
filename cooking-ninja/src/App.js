@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 import Navbar from "./components/Navbar";
+import ThemeSelector from "./components/ThemeSelector";
 import Home from "./pages/home/Home";
 import Create from "./pages/create/Create";
 import Search from "./pages/search/Search";
@@ -13,7 +13,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
+        <ThemeSelector />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
