@@ -23,8 +23,8 @@ export default function Search() {
   useEffect(() => {
     projectFirestore
       .collection("recipes")
-      .where("title", ">=", query.toLowerCase())
-      .where("title", "<=", query.toLowerCase() + "~")
+      .where("title", ">=", query)
+      .where("title", "<=", query + "~")
       .get()
       .then((snapshot) => {
         if (snapshot.empty) {
