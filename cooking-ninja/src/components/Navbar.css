@@ -28,8 +28,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar nav{
-    background: #58249c;
+  .navbar nav {
     padding: 20px;
     color: #fff;
     display: flex;
