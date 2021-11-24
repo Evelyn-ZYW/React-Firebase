@@ -49,6 +49,7 @@ export default function Home() {
       },
       (err) => {
         setError(err.message);
+        setIsPending(false);
       }
     );
 
