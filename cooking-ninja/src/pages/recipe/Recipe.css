@@ -5,12 +5,18 @@
   background: #fff;
   padding: 40px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+
 }
 .recipe ul {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   justify-content: center;
-  margin-top: 0;
+  margin-top: 20px;
+}
+.recipe ul p {
+  margin-right: 10px;
 }
 .recipe li {
   list-style-type: none;
@@ -35,4 +41,11 @@
 }
 .recipe.dark h2 {
   color: #e4e4e4;
+}
+
+@media only screen and (max-width: 1240px) {
+  .recipe {
+    max-width: 100%;
+    margin: 40px 20px;
+  }
 }

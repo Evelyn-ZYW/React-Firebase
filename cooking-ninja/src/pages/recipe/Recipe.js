@@ -44,6 +44,7 @@ export default function Recipe() {
           <h2 className="page-title">{data.title}</h2>
           <p>Takes {data.cookingTime} to cook.</p>
           <ul>
+            <p>Ingredients:</p>
             {data.ingredients.map((ing) => (
               <li key={ing}>{ing}</li>
             ))}

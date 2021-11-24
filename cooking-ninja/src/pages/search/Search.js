@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 // import useFetch from "../../hooks/useFetch";
 import { projectFirestore } from "../../firebase/config";
 import RecipeList from "../../components/RecipeList";
+import { useTheme } from "../../hooks/useTheme";
 
 import "./Search.css";
 
@@ -19,6 +20,8 @@ export default function Search() {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
+
+  const { mode } = useTheme();
 
   useEffect(() => {
     projectFirestore
@@ -45,7 +48,7 @@ export default function Search() {
   }, [query]);
 
   return (
-    <div>
+    <div className={`search ${mode}`}>
       <h2 className="page-title">Recipes including "{query}"</h2>
       {error && <p className="error">{error}</p>}
       {isPending && <p className="loading">Loading...</p>}

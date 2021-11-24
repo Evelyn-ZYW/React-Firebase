@@ -74,6 +74,9 @@
   .recipe-list {
     grid-template-columns: 1fr 1fr;
   }
+  .recipe-list .card:hover {
+    transform: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
