@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/home/Home.js";
-import Login from "./pages/login/Login.js";
-import Signup from "./pages/signup/Signup.js";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
+
 import Navber from "./components/Navbar";
 import "./App.css";
 
@@ -13,11 +14,7 @@ function App() {
         <Navber />
         <Routes>
           <Route exact path="/" element={<Home />} />
-        </Routes>
-        <Routes>
           <Route path="/signup" element={<Signup />} />
-        </Routes>
-        <Routes>
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
