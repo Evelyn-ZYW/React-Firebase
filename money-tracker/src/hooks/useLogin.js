@@ -4,8 +4,8 @@ import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
   const [isCancelled, setIsCancelled] = useState(false);
-  const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
 
   const { dispatch } = useAuthContext();
 
@@ -14,16 +14,16 @@ export const useLogin = () => {
     setIsPending(true);
 
     try {
-      // sign the user in with email & password
+      // login with email & password
       const res = await projectAuth.signInWithEmailAndPassword(email, password);
 
       // dispatch a login action
-      dispatch({ action: "LOGIN", payload: res.user });
+      dispatch({ type: "LOGIN", payload: res.user });
 
       // update the state
       if (!isCancelled) {
-        setError(null);
         setIsPending(false);
+        setError(null);
       }
     } catch (err) {
       if (!isCancelled) {
@@ -33,8 +33,10 @@ export const useLogin = () => {
       }
     }
   };
+
   useEffect(() => {
     return () => setIsCancelled(true);
   }, []);
+
   return { login, isPending, error };
 };
