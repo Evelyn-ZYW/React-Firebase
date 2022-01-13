@@ -22,7 +22,7 @@ export function AuthContextProvider({ children }) {
     authIsReady: false,
   });
 
-  console.log("AuthContext state: ", state);
+  // console.log("AuthContext state: ", state);
 
   useEffect(() => {
     const unsub = projectAuth.onAuthStateChanged((user) => {
