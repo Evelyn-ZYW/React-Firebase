@@ -5,6 +5,7 @@ export default function TransactionForm({ uid }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
 
+  // use the "transactions" collection; if not already existed, will create one
   const { addDocument, response } = useFirestore("transactions");
 
   const handleSubmit = (e) => {

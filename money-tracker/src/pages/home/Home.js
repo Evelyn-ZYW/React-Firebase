@@ -11,6 +11,8 @@ import styles from "./Home.module.css";
 
 export default function Home() {
   const { user } = useAuthContext();
+
+  // use the "transactions" collection
   const { documents, error } = useCollection("transactions");
   return (
     <div className={styles.container}>
