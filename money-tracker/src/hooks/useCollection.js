@@ -27,7 +27,7 @@ export const useCollection = (collection) => {
         setError("could not fetch data");
       }
     );
-    // clean up function - unsubscribe the realtime listener
+    // clean up function - unsubscribe the realtime listener when the component unmounts
     return () => unsubscribe();
   }, [collection]);
 

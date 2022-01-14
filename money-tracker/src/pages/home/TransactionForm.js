@@ -5,7 +5,7 @@ export default function TransactionForm({ uid }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
 
-  const { addDocument, response } = useFirestore("transaction");
+  const { addDocument, response } = useFirestore("transactions");
 
   const handleSubmit = (e) => {
     e.preventDefault();
