@@ -16,6 +16,11 @@
   font-weight: bold;
   letter-spacing: 1px;
   font-size: 1.2em;
+  color: #1f9751;
+}
+.user {
+  display: flex;
+  align-items: center;
 }
 .navbar button,
 .navbar a {
@@ -24,4 +29,20 @@
 .navbar a {
   color: #333;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 945px) {
+  .navbar ul {
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navbar ul {
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  .title {
+    margin: 0 auto 20px 0;
+  }
 }
