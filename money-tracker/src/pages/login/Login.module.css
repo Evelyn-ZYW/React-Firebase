@@ -2,6 +2,7 @@
   max-width: 360px;
   margin: 60px auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 .login-form label {
   display: block;
@@ -16,4 +17,20 @@
   font-size: 1em;
   color: #777;
   width: 100%;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 945px) {
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    margin: 20px auto;
+  }
+  .login-form label {
+    display: block;
+    margin: 10px 0;
+  }
+  .login-form button {
+    margin-top: 30px;
+  }
 }

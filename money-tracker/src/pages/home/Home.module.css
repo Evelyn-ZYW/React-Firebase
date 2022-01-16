@@ -67,6 +67,10 @@
   overflow: hidden;
   border-left: 4px solid #1f9751;
 }
+.transactions .nothing {
+  text-align: center;
+  margin-top: 50px;
+}
 .transactions .name {
   color: #777;
   font-size: 1.4em;
@@ -90,4 +94,21 @@
   line-height: 0;
   font-size: 0.9em;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 945px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 100%;
+    margin: 0 10px;
+  }
+  .content {
+    padding-right: 0;
+    margin: 20px 0;
+  }
+  .sidebar {
+    padding-left: 0;
+    margin: 20px 0;
+  }
 }
